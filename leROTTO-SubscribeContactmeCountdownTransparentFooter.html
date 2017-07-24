@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- Insert after lang= the language used on your site, 
+Example no. 1: if my site has english content I'll write <html lang="en">
+Example no. 2: if my site has italian content I'll write <html lang="it">
+(If your language isn't one of the two above, look up ISO Language Codes on the Internet)-->
+<html lang="en">
+
+<head>
+    <!-- Unless you know what you are doing I'd suggest not to modify the following lines -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Enter a small description of your page, around 10-15 words (or anyways no more than 100 characters)
+    Example no. 1: Developer personal page <meta name="description" content="Jhon Smith personal web page">
+    Example no. 2: Startup landing page  <meta name="description" content="Example lcc world's leader startup in tech supply">
+    -->
+    <meta name="description" content="">
+
+    <!-- Enter the name of the author
+    Example no. 1: Personal <meta name="author" content="Jhon Smith">
+    Example no. 2: Entreprise <meta name="author" content="Example lcc">
+    -->
+    <meta name="author" content="">
+
+    <!-- Enter here the link to your icon -->
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
+    <!-- Enter the title of your site (shows in the tab of the browser)
+    Example no. 1: Restaurant  <title>Bolognese restaurant</title>
+    Example no. 2: Hotel  <title>hotel Example 5 stars</title>
+    -->
+    <title>leROTTO - Coming Soon page</title>
+
+    <!-- Bootstrap CSS and Custom CSS -->
+    <link rel="stylesheet" href="css/normalize.css" media="all">
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+            
+    <!-- Javascript -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/device.min.js"></script> 
+    <script src="js/jquery.mb.YTPlayer.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Raleway:400,200,300,500,700,600,800,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
+
+
+</head>
+
+<body>
+    
+    <section class="videobkg">
+        <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=gbrkMDkHRqc',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>
+        <!-- Image layer between the pattern and the video or Image before loading (delete the next line if you don't want to show an image on load or a layer in between) -->
+        <div class="videobkg-default-image" id="defaultimage"></div>
+        <!-- Pattern, if you delete the following line the dots grid between the video and the text won't show, if you want to try out different kinds
+        of pattern to choose the best that suits your needs, go to the folder "images" and you will see many files named ex. "pattern1.png", "pattern2.png", etc...
+        just rename the one you want to try live on the site as "pattern.png", refresh the webpage and voilà
+        Example: I want to make the file "pattern45.png" the pattern on the site, so firstly I rename the actual "pattern.png" to "patternBK.png" and then 
+        I rename "pattern45.png" to "pattern.png" -->
+        <div class="pattern"></div> 
+        <div class="videobkg-container">
+            <!-- Title of the site, will show above the counter -->
+            <h1 id="title" class="videobkg-title"></h1>
+            <div id="lineo" class="lineo"></div>
+            <h1 id="colorify"><label id="subtitle"></label></h1>
+            <div id="counter">
+                <div class="contenithours">
+                    <div class="counter animated_"><span class="digits" id="days"></span><div id="lin1" class="line"></div><label class="titolo4" id="labelse"><label id="wdays">Days</label</label></div>
+                    <div class="counter animated_"><span class="digits" id="hours"></span><div  id="lin2" class="line"></div><label class="titolo4" id="labelse"><label id="whours">Hours</label</label></div>
+                    <div class="counter animated_"><span class="digits" id="minutes"></span><div  id="lin3" class="line"></div><label class="titolo4" id="labelse"><label id="wminutes">Minutes</label</label></div>
+                    <div class="counter animated_"><span class="digits" id="seconds"></span><div  id="lin4" class="line"></div><label class="titolo4" id="labelse"><label id="wseconds">Seconds</label</label></div>
+                </div><!-- END of class="contenithours" -->
+            </div><!-- END of id="counter" -->
+
+            <!-- Countdown START -->
+            <script>
+                function gid(id){
+                    return document.getElementById(id)
+                }
+                function counter(datetocount){
+                    var todaysdate=new Date(),datetocount=new Date(datetocount),diff=  datetocount - todaysdate;
+                    if(diff<0){
+                        //Text you want to see after the date choosen is elapsed(BIG TITLE)
+                        gid("title").innerHTML = "Launched"; 
+                        gid("lineo").style.display = "block";
+                        //Text you want to see after the date choosen is elapsed(SUB TITLE)
+                        gid("subtitle").innerHTML = "THANKS FOR YOUR PATIENCE";
+                        gid("days").style.display = "none";
+                        gid("hours").style.display = "none";
+                        gid("minutes").style.display = "none";
+                        gid("seconds").style.display = "none";
+                        gid("lin1").style.display = "none";
+                        gid("lin2").style.display = "none";
+                        gid("lin3").style.display = "none";
+                        gid("lin4").style.display = "none";
+                        gid("wdays").style.display = "none";
+                        gid("whours").style.display = "none";
+                        gid("wminutes").style.display = "none";
+                        gid("wseconds").style.display = "none";
+                    }
+                    else{
+                        function addzero(n){
+                            if(n < 10){
+                                return"0"+n
+                            }
+                            else{
+                                return n
+                            }
+                        }
+                        gid("days").innerHTML = addzero(Math.floor(diff/(60*60*1000*24)*1));
+                        gid("hours").innerHTML = addzero(Math.floor((diff%(60*60*1000*24))/(60*60*1000)*1));
+                        gid("minutes").innerHTML = addzero(Math.floor(((diff%(60*60*1000*24))%(60*60*1000))/(60*1000)*1));
+                        gid("seconds").innerHTML = addzero(Math.floor((((diff%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1));
+                        clearTimeout(counter.to);
+                        counter.to=setTimeout(function(){counter(datetocount)},1000)
+                    }
+                }
+                    
+                function animated(){
+                    var animated=document.getElementsByClassName("animated_"), i;
+                    for(i=0;i<animated.length;i++){
+                        animated[i].classList.add("animated__");
+                    }
+                }
+            
+                window.onload=function(){
+                    //Enter below the date when you want the countdown to end
+                    //jan=January|feb=February|mar=March|apr=April|may=May|jun=June|jul=July|aug=August|sep=September|oct=October|nov=November|dec=December
+                    counter("oct,29,2016,10:10:00");
+                    animated();
+                }
+            </script>
+            <!-- Countdown END -->
+
+            <!-- The next script makes the default image disappear after the video loaded, if you want to keep the default image between
+            the video background and the writings delete the following script -->
+            <!--Getting rid of the defaultimage.jpg START-->
+            <script>
+                setTimeout(function (){
+                document.getElementById("defaultimage").style.display = "none";
+                document.getElementById("defaultimage").style.opacity = 0;
+                }, 2000);
+            </script>
+            <!--Getting rid of the defaultimage.jpg END-->
+
+            
+
+            <br>
+            <!--Subscribe button under the countdown -->
+            <a href="#subscribe" class="videobkg-btn">Subscribe</a>
+            <!--contactme button under the countdown -->
+            <a href="#contactme" class="videobkg-btn">Contact ME</a>
+            
+        </div><!-- END of class="videobkg-container" -->                                                    
+    </section><!-- END of class="videobkg"-->
+    
+    <!-- ContactMe section -->
+    <div class="wrapper">
+        <!-- Subscribe section -->
+                <section class="subscribe-section" id="subscribe">
+                    <div class="subscribe-section-container">
+                    <!-- Title of the subscribe section -->
+                    <h2 class="subscribe-section-title">STAY UP TO DATE</h2>
+                    <!-- Text of the subscribe section-->
+                    <p>We will launch our awesome site SOON, if you want to join us please insert your email address here</p>
+                    <form action="php/subscribe.php" method="POST">
+                    <input name="email" type="email" class="subform" />
+                    <input type="submit" name="submit" class="subbtn" value="Subscribe" >
+                    </form><!--END of action="subscribe.php" method="POST" -->
+
+
+                    </div><!-- END of class="subscribe-section-container" -->
+                </section><!-- END of section class="subscribe-section" id="subscribe" -->
+        <section class="contactme-section" id="contactme">
+            <div class="contactme-section-container">
+                <!-- Title of the contactme section -->
+                <h2 class="contactme-section-title">Contact me</h2>
+                <!-- Text of the contactme section-->
+                <p>Please fill in the form</p>
+                <form action="php/contactme.php" method="POST">
+                    <p>Name</p>
+                    <input name="name" type="text" class="contform" /><br>
+                    <p>Email</p>
+                    <input name="email" type="email" class="contform" /><br>
+                    <p>Message</p>
+                    <textarea name="message" type="text" class="contform" ></textarea><br>
+                    <input type="submit" name="submit" class="contbtn" value="contact me" >
+                </form><!--END of action="contactme.php" method="POST" -->
+
+                
+
+            </div><!-- END of class="contactme-section-container" -->
+        </section><!-- END of section class="contactme-section" id="contactme" -->
+
+
+<section class="small-background-section">
+                    <div class="pattern"></div>
+                                    <div class="small-background-container">
+
+                <!-- Social section -->
+                <ul class="socialstransp">
+                    <br><br>
+                    <!--Social buttons, if you don't want one just delete the line with the one you don't need -->
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-3x"></i></a></li>
+                    <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-3x"></i></a></li>
+                    <li><a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus fa-3x"></i></a></li>
+                    <li><a href="https://www.behance.net/" target="_blank"><i class="fa fa-behance fa-3x"></i></a></li>
+                    <li><a href="https://dribbble.com/" target="_blank"><i class="fa fa-dribbble fa-3x"></i></a></li>
+                    <li><a href="https://github.com/" target="_blank"><i class="fa fa-github fa-3x"></i></a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a></li>
+                    <li><a href="https://paypal.com/" target="_blank"><i class="fa fa-paypal fa-3x"></i></a></li>
+                    <li><a href="https://pinterest.com/" target="_blank"><i class="fa fa-pinterest fa-3x"></i></a></li>
+                    <li><a href="https://soundcloud.com/" target="_blank"><i class="fa fa-soundcloud fa-3x"></i></a></li>
+                    <li><a href="https://slack.com/" target="_blank"><i class="fa fa-slack fa-3x"></i></a></li>
+                    <li><a href="https://www.twitch.tv/" target="_blank"><i class="fa fa-twitch fa-3x"></i></a></li>
+                    <li><a href="https://vimeo.com/" target="_blank"><i class="fa fa-vimeo fa-3x"></i></a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube fa-3x"></i></a></li>
+                    <li><a href="https://vine.co/" target="_blank"><i class="fa fa-vine fa-3x"></i></a></li>
+                    <li><a href="https://www.whatsapp.com/" target="_blank"><i class="fa fa-whatsapp fa-3x"></i></a></li>
+                </ul>
+                
+
+                                        
+                                    </div><!-- END of class="small-background-container"-->
+                </section><!-- END of class="small-background-section"-->
+                    
+
+    </div><!-- END of class="wrapper" -->
+    
+</body>
+</html>
+
